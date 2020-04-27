@@ -13,6 +13,17 @@ def validateLengthGreaterThanTwo(value):
             '{} must be longer than 2'.format(value)
         )
 
+def validateIntegerLessThan200(value):
+    if value > 200:
+        raise ValidationError(
+            '{} must be less than 200'.format(value)
+        )
+
+def validateIntegerGreaterThan1(value):
+    if value < 1:
+        raise ValidationError(
+            '{} must be more than 1'.format(value)
+        )
 
 
 
@@ -37,9 +48,10 @@ class Animal(models.Model):
     name = models.CharField(max_length=255, validators = [validateLengthGreaterThanTwo])
     desc = models.TextField(max_length=1000)
     color = models.CharField(max_length=45)
-    weight = models.IntegerField()
-    height = models.IntegerField()
-    animal_type = models.CharField(max_length=100)
+    age = models.IntegerField(validators = [validateIntegerLessThan200, validateIntegerGreaterThan1])
+    weight = models.IntegerField(validators = [validateIntegerLessThan200])
+    height = models.IntegerField(validators = [validateIntegerLessThan200])
+    animal_type = models.CharField(max_length=100, validators = [validateLengthGreaterThanTwo])
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

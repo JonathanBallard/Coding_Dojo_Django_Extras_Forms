@@ -2,7 +2,7 @@
 
 from django import forms
 from .models import *
-from ..apps.login_reg.models import User
+from ..login_reg.models import User
 
 class RegisterCatForm(forms.Form):
     name = forms.CharField(max_length=255)
