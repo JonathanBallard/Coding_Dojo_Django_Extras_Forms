@@ -2,12 +2,12 @@ from django.shortcuts import render, redirect, HttpResponse
 # Using Django Messages: https://docs.djangoproject.com/en/1.11/ref/contrib/messages/#displaying-messages 
 from django.contrib import messages 
 from .models import * 
-from .forms import RegisterForm
+from .forms import RegisterCatForm
  
  
 # Create your views here. 
 def index(request): 
-    form = RegisterForm()
+    form = RegisterCatForm()
     allCats = Cat.objects.all()
     context = {
         'regForm' : form,

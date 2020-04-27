@@ -1,20 +1,19 @@
 
 
 from django import forms
+from .models import *
+from ..apps.login_reg.models import User
 
-
-class RegisterForm(forms.Form):
+class RegisterCatForm(forms.Form):
     name = forms.CharField(max_length=255)
-    desc = forms.CharField(max_length=1000)
-    desc2 = forms.CharField(max_length=1000)
-    desc3 = forms.CharField(max_length=1000)
-    desc4 = forms.CharField(max_length=1000)
-    desc5 = forms.CharField(max_length=1000)
-    desc6 = forms.CharField(max_length=1000)
+    desc = forms.CharField(max_length=1000, widget=forms.Textarea)
 
 
 
-
+class RegisterDogForm(forms.ModelForm):
+    class Meta:
+        model = Dog
+        fields = '__all__'
 
 
 
