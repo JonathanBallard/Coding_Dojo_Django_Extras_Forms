@@ -31,18 +31,61 @@
 <div class="container">
     <h1 class="display-1">Form Page</h1>
 
-
-<form action="/forms/register/" class="" method="POST" enctype="multipart/form-data">
+<h2 class="m-4">Cats</h2>
+<form action="/forms/registerCat/" class="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
 
-    {{ regForm.as_p }}
+    {{ catForm.as_p }}
 
-    <input type="submit" value="Register">
+    <input type="submit" value="Register Cat">
 </form>
+
+
 
 <ul>
     {% for cat in all_cats %}
         <li>{{ cat.name }}</li>
+    {% endfor %}
+</ul>
+<hr>
+<h2 class="m-4">Dogs</h2>
+<form action="/forms/registerDog/" class="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ dogForm.as_p }}
+
+    <input type="submit" value="Register Dog">
+</form>
+
+
+
+
+<ul>
+    {% for dog in all_dogs %}
+        <li>{{ dog.name }}</li>
+    {% endfor %}
+</ul>
+<hr>
+<h2 class="m-4">Animals</h2>
+<form action="/forms/registerAnimal/" class="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ animalForm.as_p }}
+
+    <input type="submit" value="Register Animal">
+</form>
+
+        {% if messages %}
+        <ul class="messages">    
+            {% for message in messages %}    
+            {% if message.tags == "error" %}<li class="{{ message.tags }}">{{ message }}</li>{% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+<ul>
+    {% for animal in all_animals %}
+        <li>{{ animal.name }}</li>
     {% endfor %}
 </ul>
 

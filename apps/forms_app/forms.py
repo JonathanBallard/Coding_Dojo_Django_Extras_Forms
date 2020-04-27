@@ -17,6 +17,13 @@ class RegisterDogForm(forms.ModelForm):
 
 
 
+class RegisterAnimalForm(forms.ModelForm):
+    class Meta:
+        model = Animal
+        fields = '__all__'
+
+
+
 
 
 
